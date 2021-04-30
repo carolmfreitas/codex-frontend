@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from 'react'
-import {getTasks} from '../services/TaskService'
+import {getTasks, deleteTaskById} from '../services/TaskService'
 import moment from 'moment'
-import {FaPencilAlt} from 'react-icons/fa'
+import {FaPencilAlt, FaRegTrashAlt} from 'react-icons/fa'
 
 export default function TaskList(history) {
     
@@ -23,6 +23,13 @@ export default function TaskList(history) {
         history.push('task-edit', {id})
     }
 
+    const onDelete = (id) => {
+        deleteTaskById(id)
+            .then(() => {
+                reloadTasks()
+            })
+            .catch(err => setTaskError(err))
+    }
     return (
         <div className="card">
             <div className="card-body">
@@ -53,8 +60,11 @@ export default function TaskList(history) {
                                     <p>Adicionado em {moment(t.created_at).fromNow()}</p>
                                     <p>Atualizado em {moment(t.updated_at).fromNow()}</p>
                                 </div>
-                                <div className="card-footer">
+                                <div className="card-footer d-flex justify-content-between">
                                     <button className="btn btn-outline-light border-0" onClick={() => onEdit(t.id)}><FaPencilAlt /></button>
+                                    <button className="btn btn-outline-light border-0" onClick={() => {
+                                        if (window.confirm('Tem certeza?')) onDelete(t.id)
+                                    }}><FaRegTrashAlt /></button>
                                 </div>
                             </div>
                         </div>

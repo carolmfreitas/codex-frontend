@@ -21,3 +21,7 @@ export const putTask = async (id, {title, description, status, created_at}) => {
     const response = await ApiAxios.put(`/tasks/${id}`, {title, description, status, created_at})
     return response.data
 }
+
+export const deleteTaskById = async (id) => {
+    await ApiAxios.delete(`/tasks/${id}`)
+}
