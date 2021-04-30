@@ -7,3 +7,5 @@ npm i react-router-dom
 npm i axios
 
 npm i moment
+
+npm i react-icons
