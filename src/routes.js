@@ -1,21 +1,31 @@
-import React from 'react'
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
-import Navbar from './Navbar'
-import Home from './pages/Home'
-import TaskEdit from './pages/TaskEdit'
-import TaskForm from './pages/TaskForm'
-import TaskList from './pages/TaskList'
+import React, { useEffect, useState } from 'react'
+import App from './App'
+import LoadError from './routes/LoadError'
+import Loading from './routes/Loading'
+import SignIn from './routes/SignIn'
+import {checkToken} from './services/AuthService'
 
 export default function Routes() {
-    return (
-        <BrowserRouter>
-            <Navbar />
-            <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/task-list" component={TaskList} />
-                <Route exact path="/task-form" component={TaskForm} />
-                <Route exact path="/task-edit" component={TaskEdit} />
-            </Switch>
-        </BrowserRouter>
-    )
+    const [tokenStatus, setTokenStatus] = useState(1)
+    const [token, setToken] = useState('')
+
+    useEffect(() => {
+        setToken(localStorage.getItem('task-token'))
+        checkToken(token).then(res => {
+            res.status ? setTokenStatus(2) : setTokenStatus(3)
+        }).catch(err => {
+            console.log(err)
+            setTokenStatus(4)
+        })
+    }, [token])
+
+    if (tokenStatus === 1) {
+        return <Loading />
+    } else if (tokenStatus === 2) {
+        return <App />
+    } else if (tokenStatus === 3) {
+        return <SignIn />
+    } else if (tokenStatus === 4) {
+        return <LoadError />
+    }
 }
