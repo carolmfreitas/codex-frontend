@@ -41,9 +41,9 @@ export default function TaskForm({history}) {
       <div className="row p-2">
         <div className="col-md-4 p-2"></div>
         <div className="col-md-4 p-2">
-          <div className="card bg-primary text-black">
+          <div className="card bg-primary text-white">
             <div className="card-header text-center">
-              <h4 className="card-text">Add Task</h4>
+              <h4 className="card-text">Adicionar Tarefa</h4>
             </div>
             <div className="card-body">
               <form>
@@ -80,7 +80,7 @@ export default function TaskForm({history}) {
               </form>
             </div>
             <div className="card-footer">
-              <button className="btn btn-outline-light rounded-circle btn-lg" onClick={toSave}>Salvar</button>
+              <button className="btn btn-outline-light btn-lg" onClick={toSave}>Salvar</button>
             </div>
           </div>
         </div>

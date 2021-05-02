@@ -1,6 +1,5 @@
 import React, {useState, useEffect } from 'react'
 import {getTasks, deleteTaskById} from '../services/TaskService'
-import moment from 'moment'
 import {FaPencilAlt, FaRegTrashAlt} from 'react-icons/fa'
 import Navbar from '../Navbar'
 

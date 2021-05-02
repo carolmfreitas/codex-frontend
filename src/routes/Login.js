@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {checkToken, postSignIn} from '../services/AuthService'
+import {postSignIn} from '../services/AuthService'
 import {FaEyeSlash, FaEye} from 'react-icons/fa'
 import {Link} from 'react-router-dom'
 import {useHistory} from 'react-router-dom'

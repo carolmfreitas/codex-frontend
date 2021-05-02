@@ -8,7 +8,6 @@ export const getTasks = async () => {
 }
 
 export const postTask = async ({title, priority, description}) => {
-    const status = 1
     const response = await ApiAxios.post('/tasks/addTask/' + localStorage.getItem('id'), {title, priority, description}, {'headers': {'Content-Type': 'application/json; charset=UTF-8',
     'authorization': 'Bearer ' + localStorage.getItem('token')}})
     return response.data

@@ -1,6 +1,5 @@
 import React from 'react'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
-import Navbar from './Navbar'
 import Home from './pages/Home'
 import TaskEdit from './pages/TaskEdit'
 import TaskForm from './pages/TaskForm'

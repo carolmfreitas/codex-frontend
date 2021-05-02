@@ -6,11 +6,11 @@ import {FaEyeSlash, FaEye} from 'react-icons/fa'
 
 export default function Register() {
 
-    const [emailInvalid, setEmailInvalid] = useState('')
+    const [setEmailInvalid] = useState('')
     const [email, setEmail] = useState('')
-    const [nameInvalid, setNameInvalid] = useState('')
+    const [setNameInvalid] = useState('')
     const [name, setName] = useState('')
-    const [passwordInvalid, setPasswordInvalid] = useState('')
+    const [setPasswordInvalid] = useState('')
     const [password, setPassword] = useState('')
     const [eye, setEye] = useState(false)
 
@@ -55,7 +55,7 @@ export default function Register() {
             <div className="col-md-4 p-2">
                 <div className="card bg-primary text-white">
                     <div className="card-header text-center">
-                        <h4 className="card-text">Sign In</h4>
+                        <h4 className="card-text">Registre-se</h4>
                     </div>
                     <div className="card-body">
                         <form>
@@ -97,7 +97,7 @@ export default function Register() {
                         </form>
                     </div>
                     <div className="card-footer">
-                        <button className="btn btn-outline-light rounded-circle btn-lg" onClick={toRegister}>Register</button>
+                        <button className="btn btn-outline-light btn-lg" onClick={toRegister}>Register</button>
                         
                     </div>
                 </div>
