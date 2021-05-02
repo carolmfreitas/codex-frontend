@@ -5,6 +5,11 @@ import {postTask} from "../services/TaskService"
 export default function TaskForm({history}) {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
+  const [priority, setSelection] = useState('')
+
+  const onSelectOption = (event) => {
+    setSelection(event.target.value)
+  }
 
   const onChangeTitle = (event) => {
     setTitle(event.target.value)
@@ -17,7 +22,7 @@ export default function TaskForm({history}) {
   const toSave = (event) => {
     event.preventDefault()
 
-    postTask({title, description})
+    postTask({title, priority, description})
       .then(res => {
         if (res.title) {
           setTitle('')
@@ -51,7 +56,7 @@ export default function TaskForm({history}) {
               </div>
               <div className="form-group">
                 <label htmlFor="priority" className="form-control-label">Prioridade</label>
-                <select name="priority">
+                <select name="priority" onChange={onSelectOption}>
                     <option value="Alta">Alta</option>
                     <option value="Baixa">Baixa</option>
                 </select>
