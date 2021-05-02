@@ -12,12 +12,12 @@ export default function App() {
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact path="/" component={Home} />
+                <Route exact path="/home" component={Home} />
                 <Route exact path="/task-list" component={TaskList} />
                 <Route exact path="/task-form" component={TaskForm} />
                 <Route exact path="/task-edit" component={TaskEdit} />
 
-                <Route exact path="/login" component={Login} />
+                <Route exact path="/" component={Login} />
                 <Route exact path="/register" component={Register} />
             </Switch>
         </BrowserRouter>

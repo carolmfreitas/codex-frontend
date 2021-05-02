@@ -35,9 +35,9 @@ export default function Login() {
 
         postSignIn({email, password}).then(token => {
             if (token) {
-                    localStorage.setItem('task-token', token.token)
+                    localStorage.setItem('token', token.token)
                     localStorage.setItem('id', token.user._id)
-                    history.push('/')
+                    history.push('/home')
             }
         }).catch(err => console.log(err))
     }
@@ -53,7 +53,7 @@ export default function Login() {
             <div className="col-md-4 p-2">
                 <div className="card bg-primary text-white">
                     <div className="card-header text-center">
-                        <h4 className="card-text">Sign In</h4>
+                        <h4 className="card-text">Login</h4>
                     </div>
                     <div className="card-body">
                         <form>
@@ -85,9 +85,9 @@ export default function Login() {
                         </form>
                     </div>
                     <div className="card-footer">
-                        <button className="btn btn-outline-light rounded-circle btn-lg" onClick={toSignIn}>Sign In</button>
-                        <Link to="/signup">
-                        <button className="btn btn-outline-light rounded-circle btn-lg" type="button">Sign Up</button>
+                        <button className="btn btn-outline-light btn-lg" onClick={toSignIn}>Entrar</button>
+                        <Link to="/register">
+                        <button className="btn btn-outline-light btn-lg float-right" type="button">Registre-se</button>
                         </Link>
                         
                     </div>

@@ -10,7 +10,7 @@ export default function Routes() {
     const [token, setToken] = useState('')
 
     useEffect(() => {
-        setToken(localStorage.getItem('task-token'))
+        setToken(localStorage.getItem('token'))
         checkToken(token).then(res => {
             res.status ? setTokenStatus(2) : setTokenStatus(3)
         }).catch(err => {

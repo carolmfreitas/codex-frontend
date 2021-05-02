@@ -40,10 +40,7 @@ export default function Register() {
         }
 
         postSignUp({name, email, password}).then(status => {
-            console.log(status)
-            if (status === 200) {
-                history.push('/login')
-            }
+            history.push('/')
         }).catch(err => console.log(err))
     }
     
