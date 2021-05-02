@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import {checkToken, postSignIn} from '../services/AuthService'
 import {FaEyeSlash, FaEye} from 'react-icons/fa'
+import {Link} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 
-export default function SignIn() {
+export default function Login() {
 
     const [emailInvalid, setEmailInvalid] = useState('')
     const [email, setEmail] = useState('')
     const [passwordInvalid, setPasswordInvalid] = useState('')
     const [password, setPassword] = useState('')
     const [eye, setEye] = useState(false)
+
+    const history = useHistory()
 
     const onChangeEmail = (event) => {
         setEmailInvalid('')
@@ -24,19 +28,16 @@ export default function SignIn() {
         if (!email.match(/\S+@\S+\.\S+/)) {
             setEmailInvalid('Insira um email valido')
     } else if (!password) {
-            setPasswordInvalid('Insisra uma senha')
+            setPasswordInvalid('Insira uma senha')
     } else {
         setEmailInvalid('')
         setPasswordInvalid('')
 
         postSignIn({email, password}).then(token => {
             if (token) {
-                checkToken(token).then(res => {
-                    if (res.status) {
-                        localStorage.setItem('task-token', token)
-                        window.location.reload(false)
-                    }
-                }).catch(err => console.log(err))
+                    localStorage.setItem('task-token', token.token)
+                    localStorage.setItem('id', token.user._id)
+                    history.push('/')
             }
         }).catch(err => console.log(err))
     }
@@ -85,6 +86,10 @@ export default function SignIn() {
                     </div>
                     <div className="card-footer">
                         <button className="btn btn-outline-light rounded-circle btn-lg" onClick={toSignIn}>Sign In</button>
+                        <Link to="/signup">
+                        <button className="btn btn-outline-light rounded-circle btn-lg" type="button">Sign Up</button>
+                        </Link>
+                        
                     </div>
                 </div>
             </div>

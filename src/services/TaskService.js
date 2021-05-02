@@ -1,14 +1,16 @@
 import ApiAxios from '../ApiAxios'
 
 export const getTasks = async () => {
-    const response = await ApiAxios.get('/tasks')
+    const response = await ApiAxios.get('/tasks/allTasks', {'headers': {'Content-Type': 'application/json; charset=UTF-8',
+    'authorization': 'Bearer ' + localStorage.getItem('task-token')}})
     
-    return response.data
+    return response.data.data.tasks
 }
 
-export const postTask = async ({title, description}) => {
+export const postTask = async ({title, priority, description}) => {
     const status = 1
-    const response = await ApiAxios.post('/tasks', {title, description, status})
+    const response = await ApiAxios.post('/addTask/' + localStorage.getItem('id'), {title, priority, description}, {'headers': {'Content-Type': 'application/json; charset=UTF-8',
+    'authorization': 'Bearer ' + localStorage.getItem('task-token')}})
     return response.data
 }
 

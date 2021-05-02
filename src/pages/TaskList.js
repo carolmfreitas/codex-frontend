@@ -15,7 +15,8 @@ export default function TaskList(history) {
 
     const reloadTasks = () => {
         getTasks()
-            .then(res => setTasks(res))
+            .then(res => {console.log(res) 
+                setTasks(res)})
             .catch(err => setTaskError(err))
     }
     

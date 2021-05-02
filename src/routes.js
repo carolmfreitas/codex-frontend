@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import App from './App'
 import LoadError from './routes/LoadError'
 import Loading from './routes/Loading'
-import SignIn from './routes/SignIn'
+import Login from './routes/Login'
 import {checkToken} from './services/AuthService'
 
 export default function Routes() {
