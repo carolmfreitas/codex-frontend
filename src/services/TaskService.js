@@ -19,8 +19,8 @@ export const getTaskById = async (id) => {
     return response.data
 }
 
-export const putTask = async (id, {title, description, status, created_at}) => {
-    const response = await ApiAxios.patch(`/tasks/update/${id}`, {title, description, status, created_at}, {'headers': {'Content-Type': 'application/json; charset=UTF-8',
+export const putTask = async (id, {title, description}) => {
+    const response = await ApiAxios.patch(`/tasks/update/${id}`, {title, description, userId: localStorage.getItem('id')}, {'headers': {'Content-Type': 'application/json; charset=UTF-8',
     'authorization': 'Bearer ' + localStorage.getItem('token')}})
     return response.data
 }

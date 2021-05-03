@@ -6,11 +6,11 @@ import {FaEyeSlash, FaEye} from 'react-icons/fa'
 
 export default function Register() {
 
-    const [setEmailInvalid] = useState('')
+    const [emailInvalid ,setEmailInvalid] = useState('')
     const [email, setEmail] = useState('')
-    const [setNameInvalid] = useState('')
+    const [nameInvalid, setNameInvalid] = useState('')
     const [name, setName] = useState('')
-    const [setPasswordInvalid] = useState('')
+    const [passwordInvalid ,setPasswordInvalid] = useState('')
     const [password, setPassword] = useState('')
     const [eye, setEye] = useState(false)
 

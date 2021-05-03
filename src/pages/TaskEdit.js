@@ -96,7 +96,7 @@ export default function TaskEdit({history}) {
                 </form>
               </div>
               <div className="card-footer">
-                <button className="btn btn-outline-light rounded-circle btn-lg" onClick={toEdit}>Editar</button>
+                <button className="btn btn-outline-light btn-lg" onClick={toEdit}>Editar</button>
               </div>
             </div>
           </div>
