@@ -61,6 +61,7 @@ export default function TaskForm({history}) {
                 <div className="form-group">
                   <label htmlFor="priority" className="form-control-label">Prioridade</label>
                   <select name="priority" onChange={onSelectOption}>
+                      <option>-</option>
                       <option value="Alta">Alta</option>
                       <option value="Baixa">Baixa</option>
                   </select>
